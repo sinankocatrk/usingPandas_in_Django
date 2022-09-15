@@ -16,7 +16,14 @@ def index(request):
     #print(df.loc[[4,18],["KODU","SB KODU"]])
     #df=df[df['POZİSYON SAYISI']<5]
     #df=df[df['İL ADI']=="İSTANBUL"]
-    df.set_index("POZİSYON UNVANI",inplace=True)
+    #df.set_index("POZİSYON UNVANI",inplace=True)
+    #df=df[df.loc[4,"KODU"]]
+    #df=df[df.loc["EBE"].iloc[4]]
+    #print(df.index.names)
+    df.index.names=["id"]
+    #print(df.xs(4))
+    #df =df.to_numpy()
+    #df.columns.names=["KODU","SB KODU","KURUM ADI","POZİSYON UNVANI","İL ADI","POZİSYON SAYISI"]
     mydict = {
         "df": df.to_html()
     }
